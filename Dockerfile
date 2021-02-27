@@ -21,6 +21,6 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/chrom
 COPY . .
 
 ENV PIPENV_VENV_IN_PROJECT true
-RUN pipenv --rm && pipenv install
+RUN pipenv install
 
 CMD [ "pipenv", "run", "python", "amazon.py" ]

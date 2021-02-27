@@ -1,8 +1,9 @@
 from selenium import webdriver
 
-# AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
-# テスト用で在母あるもにしている
-AMAZON_1 = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
+# PS5商品ページ
+AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
+# テスト用商品ページ
+# AMAZON_1 = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
 
 
 def is_buyable():
@@ -12,7 +13,7 @@ def is_buyable():
     driver = webdriver.Chrome(options=options)
 
 
-    driver.get(AMAZON_1)
+    driver.get(AMAZON)
 
     a = driver.find_element_by_class_name('a-button-input').get_attribute("value")
     print(a)
