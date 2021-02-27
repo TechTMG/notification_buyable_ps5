@@ -1,13 +1,24 @@
 from selenium import webdriver
 
-AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
+# AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
+# テスト用で在母あるもにしている
+AMAZON_1 = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
 
 
-driver = webdriver.Chrome("./chromedriver")
-driver.get(AMAZON)
+def is_buyable():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(options=options)
 
-a = driver.find_element_by_class_name('a-button-input').text
-print(a)
 
-driver.close()
-driver.quit()
+    driver.get(AMAZON_1)
+
+    a = driver.find_element_by_class_name('a-button-input').get_attribute("value")
+    print(a)
+
+    driver.close()
+    driver.quit()
+
+if __name__ == '__main__':
+    is_buyable()
