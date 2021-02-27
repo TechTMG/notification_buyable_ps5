@@ -3,7 +3,7 @@ from selenium import webdriver
 # PS5商品ページ
 AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
 # テスト用商品ページ
-# AMAZON_1 = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
+# AMAZON = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
 
 
 def is_buyable():
