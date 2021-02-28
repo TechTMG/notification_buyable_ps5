@@ -1,2 +1,5 @@
 [DISCORD]
-WebhookURL = ''
+WebhookURL =
+[SiteURL]
+amazon = https://www.amazon.co.jp/dp/B08GGF7M7B
+rakuten = https://books.rakuten.co.jp/rb/16462860
