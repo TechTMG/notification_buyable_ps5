@@ -15,6 +15,9 @@ jobs:
 
       - name: Docker Pull
         run: docker pull docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5:latest
+        
+      - name: Docker images
+        run: docker images
       
       - name: Notify if I can buy ps5
         run: docker run ps5
