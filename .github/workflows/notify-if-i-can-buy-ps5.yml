@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Login to github
-        run: docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Notify if I can buy ps5
         run: docker pull docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5:latest
