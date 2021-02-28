@@ -1,0 +1,21 @@
+name: notify_if_i_can_buy_ps5.yaml
+
+on:
+  schedule:
+    - '*/5 * * * *'
+
+jobs:
+  notify_if_i_can_buy_ps5:
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to github
+        run: docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Notify if I can buy ps5
+        run: docker pull docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5:latest
+
+
+
+
+
