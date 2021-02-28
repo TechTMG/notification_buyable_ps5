@@ -1,8 +1,10 @@
 name: Notify if I can buy ps5
 
 on:
-  schedule:
-    - cron:  '*/5 * * * *'
+  push:
+#  schedule:
+#    - cron:  '*/5 * * * *'
+
 
 jobs:
   notify_if_i_can_buy_ps5:
@@ -15,9 +17,6 @@ jobs:
 
       - name: Docker Pull
         run: docker pull docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5:latest
-        
-      - name: Docker images
-        run: docker images
       
       - name: Notify if I can buy ps5
-        run: docker run ps5
+        run: docker run docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5
