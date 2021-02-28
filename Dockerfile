@@ -23,4 +23,7 @@ COPY . .
 ENV PIPENV_VENV_IN_PROJECT true
 RUN pipenv install
 
+ARG DISCORD_WEBHOOK
+ENV DISCORD_WEBHOOK ${DISCORD_WEBHOOK}
+
 CMD [ "pipenv", "run", "python", "main.py" ]
