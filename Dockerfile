@@ -23,4 +23,4 @@ COPY . .
 ENV PIPENV_VENV_IN_PROJECT true
 RUN pipenv install
 
-CMD [ "pipenv", "run", "python", "amazon.py" ]
+CMD [ "pipenv", "run", "python", "main.py" ]
