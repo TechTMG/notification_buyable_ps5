@@ -1,11 +1,10 @@
 from selenium import webdriver
 from time import sleep
+import configparser
 
-# PS5商品ページ
-AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
-# テスト用商品ページ
-# AMAZON = "https://www.amazon.co.jp/dp/B08GGGBKRQ/?th=1"
-
+config_ini = configparser.ConfigParser()
+config_ini.read('config.ini', encoding='utf-8')
+AMAZON_URL = config_ini['SiteURL']['amazon'] # PS5商品ページ
 
 def is_amazon_buyable():
     """アマゾンに商品があるかcheckする
@@ -19,7 +18,7 @@ def is_amazon_buyable():
     driver = webdriver.Chrome(options=options)
 
 
-    driver.get(AMAZON)
+    driver.get(AMAZON_URL)
     # デジタルエディション版のボタンをクリック
     driver.find_element_by_id("a-autoid-9-announce").click()
 
@@ -28,7 +27,6 @@ def is_amazon_buyable():
 
     driver.close()
     driver.quit()
-
     return is_buyable
 
 if __name__ == '__main__':
