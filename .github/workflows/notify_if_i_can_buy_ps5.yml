@@ -1,4 +1,4 @@
-name: notify_if_i_can_buy_ps5.yml
+name: Notify if I can buy ps5
 
 on:
   schedule:
