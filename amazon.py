@@ -20,7 +20,7 @@ def is_amazon_buyable():
 
     driver.get(AMAZON_URL)
     # デジタルエディション版のボタンをクリック
-    # テスト用にコメントアウト driver.find_element_by_id("a-autoid-9-announce").click()
+    driver.find_element_by_id("a-autoid-9-announce").click()
 
     sleep(1)
     is_buyable = driver.find_element_by_class_name('a-button-input').get_attribute("value")
