@@ -1,4 +1,5 @@
 from selenium import webdriver
+from time import sleep
 
 # PS5商品ページ
 AMAZON = "https://www.amazon.co.jp/dp/B08GGF7M7B/?th=1"
@@ -16,7 +17,7 @@ def is_buyable():
     driver.get(AMAZON)
     # デジタルエディション版のボタンをクリック
     driver.find_element_by_id("a-autoid-9-announce").click()
-
+    sleep(1)
     a = driver.find_element_by_class_name('a-button-input').get_attribute("value")
     print(a)
 
