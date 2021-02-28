@@ -14,6 +14,8 @@ def is_buyable():
 
 
     driver.get(AMAZON)
+    # デジタルエディション版のボタンをクリック
+    driver.find_element_by_id("a-autoid-9-announce").click()
 
     a = driver.find_element_by_class_name('a-button-input').get_attribute("value")
     print(a)
