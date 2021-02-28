@@ -3,6 +3,8 @@ name: Docker
 on:
   push:
     # Publish `main` as Docker `latest` image.
+    - shimizu-github-actions
+
 
 
     # Publish `v1.2.3` tags as releases.
