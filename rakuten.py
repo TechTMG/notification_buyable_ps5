@@ -10,9 +10,8 @@ def is_rakuten_buyable():
     """
     楽天の商品扱い状況をcheckする
 
-    確認中の商品扱い状況
-        在庫あり, 予約受付中
-        ご注文できない商品, 予約受付終了
+    Returns:
+        [str]: 商品があれば'buyable!'、なければ空文字
     """
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -25,9 +24,9 @@ def is_rakuten_buyable():
     # 商品取扱状況をテキスト取得
     buyable_status = driver.find_element_by_id('purchaseBox').text
 
-    # '在庫あり'のとき'buyable', その他のとき空文字
-    if "在庫あり" in buyable_status:
-        is_buyable = "buyable"
+    # '買い物かごに入れる'ボタンが配置されているとき'buyable', その他のとき空文字
+    if "買い物かごに入れる" in buyable_status:
+        is_buyable = "buyable!"
     else:
         is_buyable = ""
 
