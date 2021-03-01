@@ -25,25 +25,17 @@ def is_amazon_buyable():
 
     page_title = driver.title
     if AMAZON_ITEM not in page_title:
-        return ""
+        is_buyable = ""
     else:
         is_buyable = driver.find_element_by_id('rightCol').text
         if "カートに入れる" in is_buyable:
-            return "buyable!"
+            is_buyable = "buyable!"
         else:
-            return ""
-
-    """
-    # デジタルエディション版のボタンをクリック
-    driver.find_element_by_id("a-autoid-9-announce").click()
-
-    sleep(10)
-    is_buyable = driver.find_element_by_class_name('a-button-input').get_attribute("value")
-
+            is_buyable = ""
+    
     driver.close()
     driver.quit()
     return is_buyable
-    """
 
 if __name__ == '__main__':
     is_amazon_buyable()
