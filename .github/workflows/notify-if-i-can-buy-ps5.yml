@@ -1,0 +1,22 @@
+name: Notify if I can buy ps5
+
+on:
+  push:
+#   schedule:
+#     - cron:  '*/5 * * * *'
+
+
+jobs:
+  notify_if_i_can_buy_ps5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to github
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Docker Pull
+        run: docker pull docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5:latest
+      
+      - name: Notify if I can buy ps5
+        run: docker run docker.pkg.github.com/techtmg/notification_buyable_ps5/ps5
