@@ -3,7 +3,7 @@ name: Notify if I can buy ps5
 on:
 #  push:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '*/5 1-11 * * 1-5'
 
 
 jobs:
