@@ -1,11 +1,11 @@
 from selenium import webdriver
-from time import sleep
 import configparser
 
 config_ini = configparser.ConfigParser()
 config_ini.read('config.ini', encoding='utf-8')
-AMAZON_URL = config_ini['SiteURL']['amazon'] # PS5商品ページ
+AMAZON_URL = config_ini['SiteURL']['amazon']  # PS5商品ページ
 AMAZON_ITEM = "PlayStation 5 デジタル・エディション"
+
 
 def is_amazon_buyable():
     """
@@ -20,7 +20,6 @@ def is_amazon_buyable():
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
 
-
     driver.get(AMAZON_URL)
 
     page_title = driver.title
@@ -32,10 +31,11 @@ def is_amazon_buyable():
             is_buyable = "buyable!"
         else:
             is_buyable = ""
-    
+
     driver.close()
     driver.quit()
     return is_buyable
+
 
 if __name__ == '__main__':
     is_amazon_buyable()

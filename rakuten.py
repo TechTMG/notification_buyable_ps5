@@ -1,10 +1,10 @@
 from selenium import webdriver
-from time import sleep
 import configparser
 
 config_ini = configparser.ConfigParser()
 config_ini.read('config.ini', encoding='utf-8')
-RAKUTEN_URL = config_ini['SiteURL']['rakuten'] # PS5商品ページ
+RAKUTEN_URL = config_ini['SiteURL']['rakuten']  # PS5商品ページ
+
 
 def is_rakuten_buyable():
     """
@@ -17,7 +17,6 @@ def is_rakuten_buyable():
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     driver_rakuten = webdriver.Chrome(options=options)
-
 
     driver_rakuten.get(RAKUTEN_URL)
 
@@ -33,6 +32,7 @@ def is_rakuten_buyable():
     driver_rakuten.close()
     driver_rakuten.quit()
     return is_buyable
+
 
 if __name__ == '__main__':
     is_rakuten_buyable()
